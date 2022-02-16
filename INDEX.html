@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block judul %} Data Mahasiswa {% endblock %}
+
+{% block JudulKonten %}
+<br>
+<h3 class="box-tittle">Dashboard</h3>
+<a href="/tambah/" class="btn-btn-info"> Tambah Data </a>
+{% endblock %}
+
+{% block konten %}
+    <br>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nim</th>
+            <th>Nama</th>
+            <th>Jk</th>
+            <th>Jurusan</th>
+            <th>Alamat</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for row in hasil %}
+                <tr>
+                    <td>{{row.0}}</td>
+                    <td>{{row.1}}</td>
+                    <td>{{row.2}}</td>
+                    <td>{{row.3}}</td>
+                    <td>{{row.4}}</td>
+                    <td>{{row.5}}</td>
+                    <td>
+                        <a href="/ubah/{{row.0}}" class="btn btn-warning"> Ubah </a>
+                        <a href="/hapus/{{row.0}}" class="btn btn-danger"
+                            onclick="return confirm('yakin akan menghapus {{row.1}} ?')"> Hapus </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+{% block judul %} Ubah Data Mahasiswa {% endblock %}
+
+{% block JudulKonten %}
+<h3 class="box-title"> Ubah Data Mahasiswa </h3>
+{% endblock %}
+
+{% block konten%}
+<form action="{{url_for('proses_ubah')}}" method="POST">
+    {% for row in hasil %}
+        <div class="form-group">
+            <label>id</label>
+            <input type="hidden" name="nim_ori" value="{{ row.0 }}">
+            <input type="text" name="nim" class="form-control" placeholder="id" value="{{row.0}}">
+        </div>
+        <div class="form-group">
+            <label>nim</label>
+            <input type="text" name="nim" class="form-control" placeholder="nim" value="{{row.1}}">
+        </div>
+        <div class="form-group">
+            <label>nama</label>
+            <input type="text" name="nama" class="form-control" placeholder="nama" value="{{row.2}}">
+        </div>
+        <div class="form-group">
+            <label>jk</label>
+            <input type="text" name="jk" class="form-control" placeholder="jk" value="{{row.3}}">
+        </div>
+        <div class="form-group">
+            <label>jurusan</label>
+            <input type="text" name="jurusan" class="form-control" placeholder="jurusan" value="{{row.4}}">
+        </div>
+        <div class="form-group">
+            <label>alamat</label>
+            <input type="text" name="alamat" class="form-control" placeholder="alamat" value="{{row.5}}">
+        </div>
+    {% endfor %}
+
+    <div class="box-footer">
+        <button type="reset" class="btn btn-default"> Cancel </button>
+        <button type="submit" class="btn btn-primary pull-right"> Submit </button>
+    </div>
+</form>
+{% endblock %}
+
+
+
+
+
+
